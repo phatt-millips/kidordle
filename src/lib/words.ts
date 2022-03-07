@@ -1,12 +1,19 @@
 import { WORDS } from '../constants/wordlist'
-import { VALID_GUESSES } from '../constants/validGuesses'
 import { getGuessStatuses } from './statuses'
+import { DICTIONARY_URL } from '../constants/settings'
 
 export const isWordInWordList = (word: string) => {
   return (
     WORDS.includes(word.toLowerCase()) ||
-    VALID_GUESSES.includes(word.toLowerCase())
+    isInDictionary(word)
   )
+}
+
+function isInDictionary(word: string) {
+  let xmlHttpReq = new XMLHttpRequest();
+  xmlHttpReq.open("GET", DICTIONARY_URL(word), false); 
+  xmlHttpReq.send(null);
+  return xmlHttpReq.status !== 404;
 }
 
 export const isWinningWord = (word: string) => {
