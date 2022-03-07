@@ -1,8 +1,8 @@
-# React Wordle
+# Kidordle
 
-This is a clone project of the popular word guessing game we all know and love. Made using React, Typescript, and Tailwind.
+This is a fork of [react-wordle](https://github.com/cwackerfuss/react-wordle)
 
-[**Try out the demo!**](https://reactle.vercel.app/)
+[**react-wordle demo!**](https://reactle.vercel.app/)
 
 ## Build and run
 
@@ -21,6 +21,13 @@ $> npm run start
 ```bash
 $> docker build -t game .
 $> docker run -d -p 3000:3000 game
+```
+
+### To build/run on GCP
+```bash
+$> npm run build
+$> gcloud config set project kidordle
+$> gcloud app deploy
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in browser.
@@ -96,6 +103,3 @@ _Want to add one to the list? Just make a pull request or [let us know via a com
 - If the language is written right-to-left, prepend `\u202E` (the unicode right-to-left override character) to the return statement of the inner function in `generateEmojiGrid` in [src/lib/share.ts](src/lib/share.ts)
 
 
-`npm run build`
-`gcloud config set project kidordle`
-`gcloud app deploy`
